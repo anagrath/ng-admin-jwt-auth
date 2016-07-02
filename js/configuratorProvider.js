@@ -31,7 +31,15 @@ var ngAdminJWTAuthConfiguratorProvider = function() {
   this.setCheckEveryResponseForAuthHeader = function() {
     authConfigs._checkEveryResponseForAuthHeader = true;
   }
-
+  this.setAuthLoginKey = function(key) {
+    authConfigs._authKey =  key;
+  }
+  this.setResponseTokenKey = function(key) {
+    authConfigs._responseTokenKey =  key;
+  }
+  this.useJWTToken = function(key) {
+    authConfigs._useJWT =  key;
+  }
 	this.$get = function() {
 		return {
 			getAuthURL: function(){
@@ -54,6 +62,15 @@ var ngAdminJWTAuthConfiguratorProvider = function() {
 			},
       getCheckEveryResponseForAuthHeader: function() {
 				return !!authConfigs._checkEveryResponseForAuthHeader;
+			},
+      getAuthLoginKey: function() {
+				return authConfigs._authKey;
+			},
+      getResponseTokenKey: function() {
+				return authConfigs._responseTokenKey;
+			},
+      useJWTToken: function() {
+				return !!authConfigs._useJWT;
 			},
 		};
 	}
