@@ -1,5 +1,16 @@
-# ng-admin-jwt-auth
-Small module that allows to use JWT authentication with ng-admin.
+# ng-admin-loopback-auth
+Small module that allows authorization with loopback server.  This was forked from ng-admin-jwt-auth, and then modified.
+
+Below is the original readme file.  What was added was a few extra config lines that will allow use with loopback.
+where auth = NgAdminConfigurationProvider
+<pre>
+  auth.setJWTAuthURL("/api/users/login")
+  auth.setCustomAuthHeader {name: 'Authorization', template: '{{token}}'}
+  auth.setAuthLoginKey 'email'
+  auth.setResponseTokenKey 'id'
+  auth.useJWTToken false
+</pre>
+
 <h3>Demo</h3>
 https://github.com/akagadovskiy/ng-admin-jwt-auth-demoapp
 <h3>Usage example:</h3>
